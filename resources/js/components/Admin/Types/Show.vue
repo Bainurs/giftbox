@@ -31,10 +31,17 @@
             return {
                 colorHeader: '#454748',
                 colorLabel: '#454748',
-                type: {id: 1, name: 'Подарок мужчинам'},
-
+                type: {},
             }
         },
+        methods: {
+            getType(){
+                axios.get(`http://giftbox/api/type/show/${this.$route.params.id}`)
+                    .then((response) => {
+                        this.type = response.data.type;
+                    })
+            }
+        }
     }
 </script>
 

@@ -32,12 +32,17 @@
             return {
                 colorHeader: '#454748',
                 colorLabel: '#454748',
-                value: ''
+                type: {}
             }
         },
         methods: {
             createType() {
-                this.$router.push({ name: 'typesDashboard'});
+                axios.post('http://giftbox/api/type/add', this.type)
+                    .then(response => {
+                        this.$router.push({ name: 'typesDashboard'});
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => this.loading = true)
             }
         }
     }

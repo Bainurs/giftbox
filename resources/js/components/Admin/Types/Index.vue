@@ -59,42 +59,26 @@
                 page: 1,
                 max: 10,
                 search: '',
-                types: [
-                    {
-                        'id': 1,
-                        'name': 'Подарок мужчинам',
-                    },
-                    {
-                        'id': 2,
-                        'name': 'Подарок девушкам',
-                    },
-                    {
-                        'id': 3,
-                        'name': 'Новогоднии подарок',
-                    },
-                    {
-                        'id': 4,
-                        'name': '14 февраля',
-                    },
-                    {
-                        'id': 5,
-                        'name': '23 февраля',
-                    },
-                    {
-                        'id': 6,
-                        'name': '8 марта',
-                    },
-                    {
-                        'id': 7,
-                        'name': 'день рождения',
-                    },
-                ]
+                types:[]
             }
         },
         methods: {
+            getTypes() {
+                axios.get('http://giftbox/api/get-types')
+                    .then((response) => {
+                        this.types = response.data.type;
+                    })
+            },
             deleteType(id) {
-
+                axios.delete(`http://giftbox/api/type/delete/${id}`)
+                    .then(response => {
+                        const i = this.types.map(item => item.id).indexOf(id);
+                        this.types.splice(i, 1);
+                    })
             }
+        },
+        mounted() {
+            this.getTypes();
         }
 
     }

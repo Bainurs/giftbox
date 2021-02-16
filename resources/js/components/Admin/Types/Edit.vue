@@ -16,7 +16,7 @@
                 </vs-alert>
             </div>
             <div class="col-9 pl-0" style="background: #e6e8e9;">
-                <input type="text" class="input-type-name">
+                <input type="text" class="input-type-name" v-model="type.name">
             </div>
             <div class="col-12">
                 <button class="btn btn-success" @click="updateType">Обновить</button>
@@ -32,13 +32,27 @@
             return {
                 colorHeader: '#454748',
                 colorLabel: '#454748',
-                value: ''
+                type: {}
             }
         },
         methods: {
+            getType() {
+                axios.get(`http://giftbox/type/edit/${this.$route.params.id}`)
+                    .then((response) => {
+                        this.type = response.data.type;
+                    })
+            },
             updateType() {
-                this.$router.push({ name: 'typesDashboard'});
+               axios.post(`http://giftbox/type/update/${this.$route.params.id}`, this.data)
+                   .then(response => {
+                       this.$router.push({ name: 'typesDashboard'});
+                   })
+                   .catch(error => console.log(error))
+                   .finally(() => this.loading = true)
             }
+        },
+        mounted() {
+            this.getType();
         }
     }
 </script>

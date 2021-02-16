@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('create-product', 'ProductController::@store');
 
+Route::get('get-types', 'TypeController::@index');
+Route::delete('type/delete/{id}', 'TypeController::@destroy');
+Route::post('type/add', 'TypeController::@store');
+Route::get('type/show/{id}', 'TypeController::@show');
+Route::get('type/edit/{id}', 'TypeController::@edit');
+Route::post('type/update/{id}', 'TypeController::@update');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

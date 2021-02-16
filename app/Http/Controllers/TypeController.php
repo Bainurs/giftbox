@@ -14,7 +14,10 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $type=Type::all();
+        return response()->json([
+            'type'=>$type,
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,7 +38,9 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $type=Type::create($request->all());
+        $type->save();
+        return response()->json('',200);
     }
 
     /**
@@ -44,9 +49,12 @@ class TypeController extends Controller
      * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function show(Type $type)
+    public function show($id)
     {
-        //
+        $type=Type::find($id);
+        return responce()->json([
+            'type'=>$type,
+        ]);
     }
 
     /**
@@ -55,9 +63,12 @@ class TypeController extends Controller
      * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Type $type)
+    public function edit($id)
     {
-        //
+        $type=Type::find($id);
+        return responce()->json([
+            'type'=>$type,
+        ]);
     }
 
     /**
@@ -67,9 +78,11 @@ class TypeController extends Controller
      * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $type)
+    public function update($id, Request $request)
     {
-        //
+        $type = Type::find($id);
+        $type->update($request->all());
+        return response()->json('Type updated');
     }
 
     /**
@@ -78,8 +91,10 @@ class TypeController extends Controller
      * @param  \App\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Type $type)
+    public function destroy($id)
     {
-        //
+        $type=Type::find($id);
+        $type->delete();
+        return response()->json('Type deleted');
     }
 }
