@@ -16,6 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Admin",
@@ -142,7 +143,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid" }, [_c("header-vue")], 1)
+  return _c(
+    "div",
+    { staticClass: "container-fluid" },
+    [_c("header-vue"), _vm._v(" "), _c("router-view")],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -171,6 +177,7 @@ var render = function() {
     { staticClass: "hidden" },
     [
       _c("vs-navbar", {
+        staticClass: "mb-5",
         attrs: { shadow: "", square: "", "center-collapsed": "" },
         scopedSlots: _vm._u([
           {
@@ -265,11 +272,9 @@ var render = function() {
             },
             [
               _vm._v(" "),
-              _c(
-                "router-link",
-                { attrs: { to: { name: "home", path: "/" } } },
-                [_vm._v("\n                Home\n            ")]
-              )
+              _c("router-link", { attrs: { to: { path: "/admin" } } }, [
+                _vm._v("\n                Home\n            ")
+              ])
             ],
             1
           ),

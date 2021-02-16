@@ -1,6 +1,7 @@
 <template>
     <div class="container-fluid">
-       <header-vue></header-vue>
+        <header-vue></header-vue>
+        <router-view></router-view>
     </div>
 </template>
 

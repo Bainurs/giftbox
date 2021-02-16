@@ -80377,10 +80377,46 @@ var routes = [{
       return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/Admin/Roles/Index.vue */ "./resources/js/components/Admin/Roles/Index.vue"));
     }
   }, {
+    name: 'rolesShow',
+    path: 'roles/show/:id',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./components/Admin/Roles/Show.vue */ "./resources/js/components/Admin/Roles/Show.vue"));
+    }
+  }, {
+    name: 'rolesEdit',
+    path: 'roles/edit/:id',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./components/Admin/Roles/Edit.vue */ "./resources/js/components/Admin/Roles/Edit.vue"));
+    }
+  }, {
+    name: 'rolesAdd',
+    path: 'roles/add',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./components/Admin/Roles/Add.vue */ "./resources/js/components/Admin/Roles/Add.vue"));
+    }
+  }, {
     name: 'typesDashboard',
     path: 'types/dashboard',
     component: function component() {
       return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/Admin/Types/Index.vue */ "./resources/js/components/Admin/Types/Index.vue"));
+    }
+  }, {
+    name: 'typesShow',
+    path: 'types/show/:id',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./components/Admin/Types/Show.vue */ "./resources/js/components/Admin/Types/Show.vue"));
+    }
+  }, {
+    name: 'typesEdit',
+    path: 'types/edit/:id',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./components/Admin/Types/Edit.vue */ "./resources/js/components/Admin/Types/Edit.vue"));
+    }
+  }, {
+    name: 'typesAdd',
+    path: 'types/add',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./components/Admin/Types/Add.vue */ "./resources/js/components/Admin/Types/Add.vue"));
     }
   }, {
     name: 'usersDashboard',

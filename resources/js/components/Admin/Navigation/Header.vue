@@ -1,6 +1,6 @@
 <template>
     <div class="hidden">
-        <vs-navbar shadow square center-collapsed v-model="active">
+        <vs-navbar shadow square center-collapsed class="mb-5" v-model="active">
             <template #left>
                 <vs-button @click="activeSidebar = !activeSidebar" flat icon>
                     <i class='bx bx-menu'></i>
@@ -22,9 +22,9 @@
             </template>
             <vs-sidebar-item id="home">
                 <template #icon>
-                        <i class='bx bx-home'></i>
+                    <i class='bx bx-home'></i>
                 </template>
-                <router-link :to="{name: 'home', path: '/'}">
+                <router-link :to="{ path: '/admin'}">
                     Home
                 </router-link>
             </vs-sidebar-item>

@@ -13,8 +13,89 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Index"
+  name: "Index",
+  data: function data() {
+    return {
+      page: 1,
+      max: 10,
+      search: '',
+      types: [{
+        'id': 1,
+        'name': 'Подарок мужчинам'
+      }, {
+        'id': 2,
+        'name': 'Подарок девушкам'
+      }, {
+        'id': 3,
+        'name': 'Новогоднии подарок'
+      }, {
+        'id': 4,
+        'name': '14 февраля'
+      }, {
+        'id': 5,
+        'name': '23 февраля'
+      }, {
+        'id': 6,
+        'name': '8 марта'
+      }, {
+        'id': 7,
+        'name': 'день рождения'
+      }]
+    };
+  },
+  methods: {
+    deleteType: function deleteType(id) {}
+  }
 });
 
 /***/ }),
@@ -34,7 +115,200 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "div",
+      { staticClass: "center" },
+      [
+        _c("vs-table", {
+          scopedSlots: _vm._u([
+            {
+              key: "header",
+              fn: function() {
+                return [
+                  _c("vs-input", {
+                    attrs: { border: "", placeholder: "Search" },
+                    model: {
+                      value: _vm.search,
+                      callback: function($$v) {
+                        _vm.search = $$v
+                      },
+                      expression: "search"
+                    }
+                  })
+                ]
+              },
+              proxy: true
+            },
+            {
+              key: "thead",
+              fn: function() {
+                return [
+                  _c(
+                    "vs-tr",
+                    [
+                      _c("vs-th", [
+                        _vm._v(
+                          "\n                        Наименование\n                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("vs-th", [
+                        _vm._v(
+                          "\n                        Параметры\n                    "
+                        )
+                      ])
+                    ],
+                    1
+                  )
+                ]
+              },
+              proxy: true
+            },
+            {
+              key: "tbody",
+              fn: function() {
+                return _vm._l(
+                  _vm.$vs.getPage(_vm.types, _vm.page, _vm.max),
+                  function(tr, i) {
+                    return _c(
+                      "vs-tr",
+                      { key: i, attrs: { data: tr } },
+                      [
+                        _c("vs-td", [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(tr.name) +
+                              "\n                    "
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "vs-td",
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger",
+                                on: {
+                                  click: function($event) {
+                                    if (
+                                      $event.target !== $event.currentTarget
+                                    ) {
+                                      return null
+                                    }
+                                    $event.preventDefault()
+                                    return _vm.deleteType(tr.id)
+                                  }
+                                }
+                              },
+                              [_vm._v("Удалить")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                attrs: {
+                                  to: {
+                                    name: "typesEdit",
+                                    params: { id: tr.id }
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "span",
+                                  { staticClass: "badge badge-green" },
+                                  [_vm._v("Изменить")]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "router-link",
+                              {
+                                attrs: {
+                                  to: {
+                                    name: "typesShow",
+                                    params: { id: tr.id }
+                                  }
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "btn btn-primary" }, [
+                                  _vm._v("Вид")
+                                ])
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  }
+                )
+              },
+              proxy: true
+            },
+            {
+              key: "footer",
+              fn: function() {
+                return [
+                  _c(
+                    "vs-select",
+                    {
+                      attrs: { placeholder: "Select" },
+                      model: {
+                        value: _vm.max,
+                        callback: function($$v) {
+                          _vm.max = $$v
+                        },
+                        expression: "max"
+                      }
+                    },
+                    [
+                      _c("vs-option", { attrs: { label: "10", value: "10" } }, [
+                        _vm._v(
+                          "\n                        10\n                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("vs-option", { attrs: { label: "25", value: "25" } }, [
+                        _vm._v(
+                          "\n                        25\n                    "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("vs-option", { attrs: { label: "50", value: "50" } }, [
+                        _vm._v(
+                          "\n                        50\n                    "
+                        )
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("vs-pagination", {
+                    attrs: { length: _vm.$vs.getLength(_vm.types, _vm.max) },
+                    model: {
+                      value: _vm.page,
+                      callback: function($$v) {
+                        _vm.page = $$v
+                      },
+                      expression: "page"
+                    }
+                  })
+                ]
+              },
+              proxy: true
+            }
+          ])
+        })
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
