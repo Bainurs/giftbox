@@ -59,26 +59,26 @@
                 page: 1,
                 max: 10,
                 search: '',
-                roles: [
-                    {
-                        'id': 1,
-                        'name': 'Администратор',
-                    },
-                    {
-                        'id': 2,
-                        'name': 'Пользователь',
-                    },
-                    {
-                        'id': 3,
-                        'name': 'Модератор',
-                    },
-                ]
+                roles: []
             }
         },
         methods: {
+            getRoles() {
+                axios.get('http://giftbox/api/get-roles')
+                    .then((response) => {
+                        this.roles = response.data;
+                    })
+            },
             deleteType(id) {
-
+                axios.delete(`http://giftbox/api/role/delete/${id}`)
+                    .then(response => {
+                        const i = this.role.map(item => item.id).indexOf(id);
+                        this.role.splice(i, 1);
+                    })
             }
+        },
+        mounted() {
+            this.getRoles();
         }
 
     }

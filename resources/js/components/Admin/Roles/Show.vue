@@ -17,7 +17,7 @@
             </div>
             <div class="col-9" style="background: #e6e8e9;">
                 <p class="pt-3">
-                    <span>{{ type.name }}</span>
+                    <span>{{ role.name }}</span>
                 </p>
             </div>
         </div>
@@ -31,10 +31,18 @@
             return {
                 colorHeader: '#454748',
                 colorLabel: '#454748',
-                type: {id: 1, name: 'Администратор'},
+                role: {},
 
             }
         },
+        methods: {
+            getRole() {
+                axios.get(`http://giftbox/role/show/${this.$route.params.id}`)
+                    .then((response) => {
+                        this.role = response.data;
+                    })
+            }
+        }
     }
 </script>
 

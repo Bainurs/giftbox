@@ -37,7 +37,12 @@
         },
         methods: {
             createRole() {
-                this.$router.push({ name: 'rolesDashboard'});
+                axios.post('http://giftbox/api/role/add')
+                    .then(response => {
+                        this.$router.push({ name: 'rolesDashboard'});
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => this.loading = true)
             }
         }
     }

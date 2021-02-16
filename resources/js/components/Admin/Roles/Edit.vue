@@ -32,10 +32,16 @@
             return {
                 colorHeader: '#454748',
                 colorLabel: '#454748',
-                role: {id: 1, name: 'Администратор'}
+                role: {}
             }
         },
         methods: {
+            getRole() {
+                axios.get(`http://giftbox/api/role/edit/${this.$route.params.id}`)
+                    .then((response) => {
+                        this.role = response.data;
+                    })
+            },
             updateRole() {
                 this.$router.push({ name: 'rolesDashboard'});
             }

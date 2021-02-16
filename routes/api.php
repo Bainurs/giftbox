@@ -23,6 +23,13 @@ Route::get('type/show/{id}', 'TypeController::@show');
 Route::get('type/edit/{id}', 'TypeController::@edit');
 Route::post('type/update/{id}', 'TypeController::@update');
 
+Route::get('get-roles', 'RoleController::@index');
+Route::delete('role/delete/{id}', 'RoleController::@destroy');
+Route::post('role/add', 'RoleController::@store');
+Route::get('role/show/{id}', 'RoleController::@show');
+Route::get('role/edit/{id}', 'RoleController::@edit');
+Route::post('role/update/{id}', 'RoleController::@update');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
